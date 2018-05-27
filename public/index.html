@@ -1,0 +1,46 @@
+<!DOCTYPE>
+<html ng-app="myApp">
+	<head>
+		<link href="styles/style.css" rel="stylesheet" type="text/css">
+		<link href='https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Oswald|Montserrat|Raleway' rel='stylesheet' type='text/css'>
+		<link rel="shortcut icon" type="image/x-icon" href="http://www.chrisburgdorff.com/cb.ico" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>House Test</title>
+	</head>
+	<body>
+		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+		<script src="mq.js"></script>
+		<div ng-controller="AppCtrl">
+		<h1>House Comparer</h1>
+
+			Enter Address:
+			<input id="add" type="text"></input>
+			<button id="fetch">Get Distances</button>
+
+		<table id="results">
+            <tbody>
+                <tr>
+                    <th>Address</th>
+                    <th>Belmar</th>
+                    <th>Mountainside</th>
+                    <th>Toms River</th>
+                    <th>Station</th>
+                    <th>To Train</th>
+					<th>New York</th>
+                </tr>
+				<tr ng-repeat="house in houseList">
+					<td>{{house.address}}</td>
+					<td>{{house.belmar}}</td>
+					<td>{{house.mountainside}}</td>
+					<td>{{house.tomsRiver}}</td>
+					<td>{{house.station}}</td>
+					<td>{{house.toTrain}}</td>
+					<td>{{house.newYork}}</td>
+				</tr>
+            </tbody>
+		</table>
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.10/angular.min.js"></script>
+		<script src="controllers/controller.js"></script>
+	</body>
+</html>
