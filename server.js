@@ -38,7 +38,7 @@ app.get('/house', function(req, res){
 		newYork: '01:05:00'
 	};
 	var houseList = [house1, house2, house3];
-	res.send(houseList);
+	res.json(houseList);
 });
 
 mongoose.connect('mongodb://wesborland1234:vcr357@ds135750.mlab.com:35750/housecomparerdb');
