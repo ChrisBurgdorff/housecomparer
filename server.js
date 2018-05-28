@@ -2,9 +2,13 @@ var express = require('express');
 var app = express();
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
-var houseController = require('./server/controllers/house-controller.js');
+//var houseController = require('./server/controllers/house-controller.js');
 
 app.use(express.static(__dirname + "/public"));
+
+app.get('/', function(req, res){
+	res.send("Working");
+});
 
 app.get('/house', function(req, res){
 	console.log("I recieved the get request.");
