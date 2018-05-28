@@ -6,10 +6,6 @@ var bodyParser = require('body-parser');
 
 app.use(express.static(__dirname + "/public"));
 
-app.get('/', function(req, res){
-	res.send("Working");
-});
-
 app.get('/house', function(req, res){
 	console.log("I recieved the get request.");
 	var house1 = {
@@ -42,6 +38,8 @@ app.get('/house', function(req, res){
 	var houseList = [house1, house2, house3];
 	res.json(houseList);
 });
+
+mongoose.connect('mongodb://wesborland1234:vcr357@ds135750.mlab.com:35750/housecomparerdb');
 
 app.listen(process.env.PORT || 3000, function(){
 	console.log("Application is listening on port 3000, or whatever.");
