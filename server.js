@@ -6,6 +6,8 @@ var bodyParser = require('body-parser');
 
 app.use(express.static(__dirname + "/public"));
 
+app.use(bodyParser());
+
 app.get('/house', function(req, res){
 	console.log("I recieved the get request.");
 	var house1 = {
