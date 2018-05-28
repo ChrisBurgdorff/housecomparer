@@ -12,9 +12,12 @@ app.use(bodyParser());
 
 app.get('/house', function(req, res){
 	var houseList;
-	console.log("I recieved the get request.");
+	console.log("I RECIEVED THE GET REQUEST!!!!!!!!!");
 	MongoClient.connect(MongoUrl, function(err, db) {
-		if (err) throw err;
+		IF (err) {
+			console.log(err);
+		} else {
+		console.log("INTO MONGO FUNCTION!!!!!!!!!!!!!!!!!!!!!!");
 		var dbo = db.db("housecomparerdb");
 		dbo.collection("houses").find({}, function(err, result) {
 			if (err) throw err;
@@ -22,6 +25,7 @@ app.get('/house', function(req, res){
 			houseList = result;
 			db.close();
 		});
+		}
 	});
 	//var houseList = [house1, house2, house3];
 	res.json(houseList);
