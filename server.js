@@ -14,7 +14,7 @@ app.get('/house', function(req, res){
 	var houseList;
 	console.log("I RECIEVED THE GET REQUEST!!!!!!!!!");
 	MongoClient.connect(MongoUrl, function(err, db) {
-		IF (err) {
+		if (err) {
 			console.log(err);
 		} else {
 		console.log("INTO MONGO FUNCTION!!!!!!!!!!!!!!!!!!!!!!");
