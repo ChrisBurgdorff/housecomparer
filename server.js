@@ -13,7 +13,7 @@ app.use(bodyParser());
 app.get('/house', function(req, res){
 	var houseList;
 	console.log("I recieved the get request.");
-	MongoClient.connect(url, function(err, db) {
+	MongoClient.connect(MognoUrl, function(err, db) {
 		if (err) throw err;
 		var dbo = db.db("housecomparerdb");
 		dbo.collection("houses").find({}, function(err, result) {
