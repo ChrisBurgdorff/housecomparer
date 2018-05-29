@@ -30,6 +30,19 @@
 					<th>New York</th>
                     <th>Action</th>
                 </tr>
+                <tr ng-show="editing">
+                    <td><input ng-model="houseToEdit.address"></input></td>
+					<td><input ng-model="houseToEdit.belmar"></td>
+					<td><input ng-model="houseToEdit.mountainside"></td>
+					<td><input ng-model="houseToEdit.tomsRiver"></td>
+					<td><input ng-model="houseToEdit.station"></td>
+					<td><input ng-model="houseToEdit.toTrain"></td>
+					<td><input ng-model="houseToEdit.newYork"></td>
+                    <td><a class="link2" ng-click="update()">Save</a>
+                        &nbsp;&nbsp;
+                        <a class="link2" ng-click="remove(house._id)">Cancel</a>
+                    </td>
+                </td>
 				<tr ng-repeat="house in houseList.data">
 					<td>{{house.address}}<input ng-show="editing" ng-model="house.address"></input></td>
 					<td>{{house.belmar}}<input ng-show="editing" ng-model="house.belmar"></td>
