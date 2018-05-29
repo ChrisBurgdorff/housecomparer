@@ -5,6 +5,7 @@ var bodyParser = require('body-parser');
 //var houseController = require('./server/controllers/house-controller.js');
 var MongoClient = require('mongodb').MongoClient;
 var MongoUrl = "mongodb://wesborland1234:vcr357@ds135750.mlab.com:35750/housecomparerdb";
+var mongodb = require('mongodb');
 
 app.use(express.static(__dirname + "/public"));
 
@@ -44,7 +45,7 @@ app.post('/house', function (req, res) {
 app.delete('/house/:id', function (req, res) {
   var id = req.params.id;
   console.log(id);
-  db.collection('houses').remove({_id: mongojs.ObjectId(id)}, function (err, doc) {
+  db.collection('houses').remove({_id: new mongodb.ObjectID(id)}, function (err, doc) {
     res.json(doc);
   });
 });
