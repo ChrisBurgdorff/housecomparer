@@ -54,7 +54,7 @@ app.put('/house/:id', function (req, res) {
   var id = req.params.id;
   console.log(req.body.name);
   db.collection('houses').findAndModify({
-    query: {_id: mongojs.ObjectId(id)},
+    query: {_id: new mongodb.ObjectID(id)},
     update: {$set: {
         address: req.body.address,
         belmar: req.body.belmar,
