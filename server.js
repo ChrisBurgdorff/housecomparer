@@ -13,9 +13,9 @@ app.use(bodyParser());
 //Connect to Mongo
 var db;
 
-MongoClient.connect(MongoUrl, (err, client) => {
+MongoClient.connect(MongoURL, (err, client) => {
     if (err) return console.log(err)
-    db = client.db('housecomparerdb'); // whatever your database name is
+    db = client.db('housecomparerdb') // whatever your database name is
     app.listen(process.env.PORT || 3000, function(){
         console.log("Application is listening on port 3000, or whatever.");
     });
@@ -28,9 +28,10 @@ app.get('/house', function(req, res){
     db.collection('houses').find().toArray(function(err, results) {
         console.log(results);
         houseList = results;
+        res.json(houseList);
     });
 	//var houseList = [house1, house2, house3];
-	res.json(houseList);
+	
 });
 
 //mongoose.connect('mongodb://wesborland1234:vcr357@ds135750.mlab.com:35750/housecomparerdb');
