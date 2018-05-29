@@ -13,7 +13,7 @@ app.use(bodyParser());
 //Connect to Mongo
 var db;
 
-MongoClient.connect(MongoURL, (err, client) => {
+MongoClient.connect(MongoUrl, (err, client) => {
     if (err) return console.log(err)
     db = client.db('housecomparerdb') // whatever your database name is
     app.listen(process.env.PORT || 3000, function(){
