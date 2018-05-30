@@ -52,17 +52,16 @@ app.delete('/house/:id', function (req, res) {
 
 app.put('/house/:id', function (req, res) {
   var id = req.params.id;
-  db.collection('houses').findOneAndUpdate({
-    query: {_id: new mongodb.ObjectID(id)},
-    update: {$set: {
+  db.collection('houses').updateOne({_id: new mongodb.ObjectID(id)},
+    {$set: {
         address: req.body.address,
         belmar: req.body.belmar,
         mountainside: req.body.mountainside,
         tomsRiver: req.body.tomsRiver,
         station: req.body.station,
         toTrain: req.body.toTrain,
-        newYork: req.body.newYork}},
-    new: true}, function (err, doc) {
+        newYork: req.body.newYork}}, 
+	function (err, doc) {
       res.json(doc);
     }
   );
