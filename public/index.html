@@ -13,12 +13,9 @@
 		<script src="display.js"></script>
 		<div ng-controller="AppCtrl" id="houseAppDiv">
 		<h1>House Comparer</h1>
-		<h1>{{fakeVar}}</h1>
 			<p class="label">Enter Address:</p>
 			<input id="add" type="text" ng-model="addressToAdd"></input>
 			<button id="fetch" ng-click="getInfo()">Get Distances</button>
-			<p>
-		{{houseList | json}} </p>
 		<table id="results">
             <tbody>
                 <tr>
@@ -40,7 +37,7 @@
 					<td><input ng-model="houseToEdit.toTrain"></input></td>
 					<td><input ng-model="houseToEdit.newYork"></input></td>
                     <td><a class="link2" ng-click="update()">Save</a>
-                        &nbsp;&nbsp;
+                        &nbsp;
                         <a class="link2" ng-click="deselect()">Cancel</a>
                     </td>
                 </td>
