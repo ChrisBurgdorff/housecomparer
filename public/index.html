@@ -9,14 +9,14 @@
 	</head>
 	<body>
 		<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-		<script src="mq.js"></script>
+		<!--<script src="mq.js"></script>-->
 		<script src="display.js"></script>
 		<div ng-controller="AppCtrl" id="houseAppDiv">
 		<h1>House Comparer</h1>
 		<h1>{{fakeVar}}</h1>
 			<p class="label">Enter Address:</p>
-			<input id="add" type="text"></input>
-			<button id="fetch">Get Distances</button>
+			<input id="add" type="text" ng-model="addressToAdd"></input>
+			<button id="fetch" ng-click="getInfo()">Get Distances</button>
 			<p>
 		{{houseList | json}} </p>
 		<table id="results">
