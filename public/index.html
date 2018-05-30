@@ -44,7 +44,7 @@
                         <a class="link2" ng-click="deselect()">Cancel</a>
                     </td>
                 </td>
-				<tr ng-repeat="house in houseList.data">
+				<tr ng-class="{ hidden: $index == hiddenRow }" ng-repeat="house in houseList.data">
 					<td>{{house.address}}</td>
 					<td>{{house.belmar}}</td>
 					<td>{{house.mountainside}}</td>
@@ -52,7 +52,7 @@
 					<td>{{house.station}}</td>
 					<td>{{house.toTrain}}</td>
 					<td>{{house.newYork}}</td>
-                    <td><a class="link2" ng-click="edit(house._id)">Edit</a>
+                    <td><a class="link2" ng-click="edit(house._id, $index)">Edit</a>
                         &nbsp;&nbsp;
                         <a class="link2" ng-click="remove(house._id)">Delete</a>
                     </td>
