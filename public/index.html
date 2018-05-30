@@ -13,7 +13,7 @@
 		<div ng-controller="AppCtrl" id="houseAppDiv">
 		<h1>House Comparer</h1>
 		<h1>{{fakeVar}}</h1>
-			Enter Address:
+			<p>Enter Address:</p>
 			<input id="add" type="text"></input>
 			<button id="fetch">Get Distances</button>
 			<p>
@@ -32,15 +32,15 @@
                 </tr>
                 <tr ng-show="editing">
                     <td><input ng-model="houseToEdit.address"></input></td>
-					<td><input ng-model="houseToEdit.belmar"></td>
-					<td><input ng-model="houseToEdit.mountainside"></td>
-					<td><input ng-model="houseToEdit.tomsRiver"></td>
-					<td><input ng-model="houseToEdit.station"></td>
-					<td><input ng-model="houseToEdit.toTrain"></td>
-					<td><input ng-model="houseToEdit.newYork"></td>
+					<td><input ng-model="houseToEdit.belmar"></input></td>
+					<td><input ng-model="houseToEdit.mountainside"></input></td>
+					<td><input ng-model="houseToEdit.tomsRiver"></input></td>
+					<td><input ng-model="houseToEdit.station"></input></td>
+					<td><input ng-model="houseToEdit.toTrain"></input></td>
+					<td><input ng-model="houseToEdit.newYork"></input></td>
                     <td><a class="link2" ng-click="update()">Save</a>
                         &nbsp;&nbsp;
-                        <a class="link2" ng-click="remove(house._id)">Cancel</a>
+                        <a class="link2" ng-click="deselect()">Cancel</a>
                     </td>
                 </td>
 				<tr ng-repeat="house in houseList.data">
