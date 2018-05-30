@@ -72,7 +72,7 @@ app.put('/house/:id', function (req, res) {
 app.get('/house/:id', function (req, res) {
   var id = req.params.id;
   console.log(id);
-  db.collection('houses').findOne({_id: mongojs.ObjectId(id)}, function (err, doc) {
+  db.collection('houses').findOne({_id: new mongodb.ObjectID(id)}, function (err, doc) {
     res.json(doc);
   });
 });
