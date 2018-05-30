@@ -52,7 +52,6 @@ app.delete('/house/:id', function (req, res) {
 
 app.put('/house/:id', function (req, res) {
   var id = req.params.id;
-  console.log(req.body.name);
   db.collection('houses').findAndModify({
     query: {_id: new mongodb.ObjectID(id)},
     update: {$set: {
