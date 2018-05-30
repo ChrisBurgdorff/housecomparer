@@ -2,10 +2,16 @@
 #houseAppDiv {
 	overflow: auto;
 }
-/*ADDED ON 05-29-2018*/
+
+.label {
+	display: inline-block;
+}
+
 td input {
 	width: 90%;
 }
+/*ADDED ON 05-29-2018*/
+
 table {
     border-collapse: collapse;
     text-align: right;
