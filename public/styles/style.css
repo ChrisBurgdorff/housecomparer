@@ -29,7 +29,7 @@ table {
   min-width: 50%;
 }
 
-* {
+table, h1, button, p {
 	margin: 20px;
 }
 
