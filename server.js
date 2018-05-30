@@ -52,7 +52,7 @@ app.delete('/house/:id', function (req, res) {
 
 app.put('/house/:id', function (req, res) {
   var id = req.params.id;
-  db.collection('houses').findAndModify({
+  db.collection('houses').findOneAndUpdate({
     query: {_id: new mongodb.ObjectID(id)},
     update: {$set: {
         address: req.body.address,
