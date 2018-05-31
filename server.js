@@ -81,9 +81,10 @@ app.get('/house/:id', function (req, res) {
 
 app.get('/zhouse', function (req, res) {    
     var parameters = {
-        zpid: 92365291
+        address: '1204 Ocean Ave',
+        citystatezip: '07719'
     };
-    zillow.get('GetZestimate', parameters)
+    zillow.get('GetDeepSearchResults', parameters)
     .then(function(results) {
         res.json(results);
     // results here is an object { message: {}, request: {}, response: {}} 
