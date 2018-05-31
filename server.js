@@ -85,7 +85,7 @@ app.get('/zhouse', function (req, res) {
     };
     zillow.get('GetZestimate', parameters)
     .then(function(results) {
-        return results;
+        res.json(results);
     // results here is an object { message: {}, request: {}, response: {}} 
     })
 });
