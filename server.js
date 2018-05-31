@@ -7,6 +7,10 @@ var MongoClient = require('mongodb').MongoClient;
 var MongoUrl = "mongodb://wesborland1234:vcr357@ds135750.mlab.com:35750/housecomparerdb";
 var mongodb = require('mongodb');
 
+var Zillow = require('node-zillow'); 
+//Instantiate
+var zillow = new Zillow('X1-ZWz1ggai24ki6j_5b1bv', {https: true});
+
 app.use(express.static(__dirname + "/public"));
 
 app.use(bodyParser.json());
@@ -73,5 +77,16 @@ app.get('/house/:id', function (req, res) {
   db.collection('houses').findOne({_id: new mongodb.ObjectID(id)}, function (err, doc) {
     res.json(doc);
   });
+});
+
+app.get('/zhouse', function (req, res) {    
+    var parameters = {
+        zpid: 92365291
+    };
+    zillow.get('GetZestimate', parameters)
+    .then(function(results) {
+        return results;
+    // results here is an object { message: {}, request: {}, response: {}} 
+    })
 });
 
