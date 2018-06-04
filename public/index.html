@@ -13,9 +13,33 @@
 		<script src="display.js"></script>
 		<div ng-controller="AppCtrl" id="houseAppDiv">
 		<h1>House Comparer</h1>
-			<p class="label">Enter Address:</p>
-			<input id="add" type="text" ng-model="addressToAdd"></input>
-			<button id="fetch" ng-click="getInfo()">Get Distances</button>
+			<div class="leftForm">
+				<p class="label">Enter Address:</p>
+				<input id="add" type="text" ng-model="addressToAdd"></input>
+				
+				<br>
+				<p class="label">Select One:</p>
+				<select ng-model="rentBuy" ng-change="selectRentBuy()">
+					<option value="rent" selected>Rent</option>
+					<option value="buy">Buy</option>
+				</select>
+				<br>
+				<p class="label" ng-show="renting">Enter Rent:</p>
+				<p class="label" ng-show="buying">Enter Home Price:</p>
+				<input id="price" class="money" ng-model="price"></input>
+				<button id="fetch" ng-click="getInfo()">Save House</button>
+			</div>
+			<div class="rightForm">
+				<p class="label">Enter Down Payment:</p>
+				<input id="down" class="money" ng-model="downPayment"></input>
+				<select ng-model="dollarsPercent" ng-change="selectRentBuy()">
+					<option value="dollars" selected>Dollars</option>
+					<option value="percent">Percent</option>
+				</select>
+				<br>
+				<button id="downPaymentButton" ng-click="updateDown()">Update Payments</button>
+			</div>
+			<div class="clearFix"></div>
 		<table id="results">
             <tbody>
                 <tr>
