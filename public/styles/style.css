@@ -1,3 +1,16 @@
+/*ADDED ON 06-03-2018*/
+.leftForm {
+	float: left;
+}
+.rightForm {
+	float: right;
+	margin-right: 40px;
+}
+#downPaymentButton {
+	float: right;
+}
+/*ADDED ON 06-03-2018*/
+
 /*ADDED ON 05-29-2018*/
 #houseAppDiv {
 	overflow: auto;
