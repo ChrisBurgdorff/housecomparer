@@ -7,7 +7,7 @@
 }
 
 /* Tooltip text */
-.tooltiptext {
+.tooltip .tooltiptext {
     visibility: hidden;
     width: 120px;
     background-color: black;
@@ -88,7 +88,7 @@ h1 {
 #add {
   width: 500px;
 }
-
+/*
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -104,7 +104,8 @@ fieldset, form, label, legend, caption {
 	font-style: inherit;
 	font-size: 100%;
 	vertical-align: baseline;
-}
+} 
+*/
 /*************************************************************
 LANDING PAGE
 **************************************************************/
