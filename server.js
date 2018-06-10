@@ -101,7 +101,7 @@ app.put('/settings/:id', function (req, res) {
   );
 });
 
-app.get('/zhouse', parameters, function (req, res) {    
+app.get('/zhouse', function (req, res) {    
     /*var parameters = {
         address: '1204 Ocean Ave',
         citystatezip: '07719'
