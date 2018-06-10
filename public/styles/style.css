@@ -14,7 +14,7 @@
     color: #fff;
     text-align: center;
     padding: 5px 0;
-    border-radius: 6px;
+	border-radius: 6px;
  
     /* Position the tooltip text - see examples below! */
     position: absolute;
@@ -95,7 +95,7 @@ a, abbr, acronym, address, big, cite, code,
 del, dfn, em, font, img, ins, kbd, q, s, header, menu, samp,
 small, strike, strong, sub, sup, tt, var,
 dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend, caption,{
+fieldset, form, label, legend, caption {
 	margin: 0;
 	padding: 0;
 	border: 0;
