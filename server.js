@@ -106,7 +106,7 @@ app.get('/zhouse', function (req, res) {
         address: '1204 Ocean Ave',
         citystatezip: '07719'
     };
-    zillow.get('GetDeepSearchResults', parameters)
+    zillow.get('GetDeepSearchResults', req)
     .then(function(results) {
         res.json(results);
     // results here is an object { message: {}, request: {}, response: {}} 
