@@ -79,39 +79,13 @@ app.get('/house/:id', function (req, res) {
   });
 });
 
-app.get('/settings', function(req, res){
-	var settings;
-    //Get settings from database
-    db.collection('settings').find().toArray(function(err, results) {
-        console.log(results);
-        settings = results;
-        res.json(settings);
-    });
-});
-
-app.put('/settings/:id', function (req, res) {
-  var id = req.params.id;
-  db.collection('settings').updateOne({_id: new mongodb.ObjectID(id)},
-    {$set: {
-        downPayment: req.body.downPayment,
-        dollarsPercent: req.body.dollarsPercent}}, 
-	function (err, doc) {
-      res.json(doc);
-    }
-  );
-});
-
 app.get('/zhouse', function (req, res) {    
-    /*var parameters = {
+    var parameters = {
         address: '1204 Ocean Ave',
         citystatezip: '07719'
-    };*/
-	console.log("request in zillow get from server.js");
-	console.log(req);
+    };
     zillow.get('GetDeepSearchResults', parameters)
     .then(function(results) {
-	    console.log("Resukltd:");
-	    console.log(results);
         res.json(results);
     // results here is an object { message: {}, request: {}, response: {}} 
     })
