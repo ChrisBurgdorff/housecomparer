@@ -854,10 +854,10 @@ myApp.controller('AppCtrl', ['$scope','$http', function($scope, $http) {
 							console.log("RESPONSE from zhouse in controller: ");
 							console.log(response);
 							//$scope.houseToEdit = response.data;
-							houseToAdd.bedBath = response.response.results.result[0].bedrooms[0] + " / " + response.response.results.result[0].bathrooms[0];
-							houseToAdd.squareFeet = response.response.results.result[0].finishedSqFt[0];
-							houseToAdd.link = response.response.results.result[0].links[0].homedetails;
-							houseToAdd.taxAssessment = response.response.results.result[0].taxAssessment[0];
+							houseToAdd.bedBath = response.data.response.results.result[0].bedrooms[0] + " / " + response.response.results.result[0].bathrooms[0];
+							houseToAdd.squareFeet = response.data.response.results.result[0].finishedSqFt[0];
+							houseToAdd.link = response.data.response.results.result[0].links[0].homedetails[0];
+							houseToAdd.taxAssessment = response.data.response.results.result[0].taxAssessment[0];
 							resolve(houseToAdd);
 						}, function (error) {
 							console.log(error);
