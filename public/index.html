@@ -27,7 +27,7 @@
 				<p class="label" ng-show="renting">Enter Rent:</p>
 				<p class="label" ng-show="buying">Enter Home Price:</p>
 				<input id="price" class="money" ng-model="price"></input>
-				<button id="fetch" ng-click="getInfo()">Save House</button><p>{{message}}</p>
+				<button id="fetch" ng-click="getInfo()">Save House</button><p class="message">{{message}}</p>
 			</div>
 			<div class="rightForm">
 				<p class="label">Current Down Payment is: <span ng-show="currentDollarsPercent=='dollars'">$</span> {{currentDown}} <span ng-show="currentDollarsPercent=='percent'">%</span></p>
@@ -78,16 +78,16 @@
                 </td>
 				<tr ng-class="{ hidden: $index == hiddenRow }" ng-repeat="house in houseList.data">
 					<td ng-class="{ 'bold' : house.rentBuy == 'buy' }"><a ng-href="{{house.link}}">{{house.address}}</a></td>
-					<td>{{house.belmar}}</td>
-					<td>{{house.mountainside}}</td>
-					<td>{{house.tomsRiver}}</td>
+					<td ng-class="{ 'bold' : house.rentBuy == 'buy' }">{{house.belmar}}</td>
+					<td ng-class="{ 'bold' : house.rentBuy == 'buy' }">{{house.mountainside}}</td>
+					<td ng-class="{ 'bold' : house.rentBuy == 'buy' }">{{house.tomsRiver}}</td>
 					<!--<td>{{house.station}}</td>-->
-					<td><div class="tooltip">{{house.toTrain}}<div class="tooltiptext">{{house.station}}</div></div></td>
-					<td><div class="tooltip">{{house.newYork}}<div class="tooltiptext">{{house.station}}</div></div></td>
-					<td>{{house.price}}</td>
-					<td>{{house.payment}}</td>
-                    <td>{{house.bedBath}}</td>
-                    <td>{{house.squareFeet}}</td>
+					<td ng-class="{ 'bold' : house.rentBuy == 'buy' }"><div class="tooltip">{{house.toTrain}}<div class="tooltiptext">{{house.station}}</div></div></td>
+					<td ng-class="{ 'bold' : house.rentBuy == 'buy' }"><div class="tooltip">{{house.newYork}}<div class="tooltiptext">{{house.station}}</div></div></td>
+					<td ng-class="{ 'bold' : house.rentBuy == 'buy' }">{{house.price}}</td>
+					<td ng-class="{ 'bold' : house.rentBuy == 'buy' }">{{house.payment}}</td>
+                    <td ng-class="{ 'bold' : house.rentBuy == 'buy' }">{{house.bedBath}}</td>
+                    <td ng-class="{ 'bold' : house.rentBuy == 'buy' }">{{house.squareFeet}}</td>
                     <td><a class="link2" ng-click="edit(house._id, $index)">Edit</a>
                         &nbsp;
                         <a class="link2" ng-click="remove(house._id)">Delete</a>
