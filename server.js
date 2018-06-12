@@ -102,10 +102,10 @@ app.put('/settings/:id', function (req, res) {
 });
 
 app.get('/zhouse', function (req, res) {    
-    /*var parameters = {
+    var parameters = {
         address: '1204 Ocean Ave',
         citystatezip: '07719'
-    };*/
+    };
 	console.log("request in zillow get from server.js");
 	console.log(req);
     zillow.get('GetDeepSearchResults', parameters)
