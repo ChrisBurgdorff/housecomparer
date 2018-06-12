@@ -10,6 +10,8 @@ myApp.controller('AppCtrl', ['$scope','$http', function($scope, $http) {
 		$scope.dollarsPercent = "dollars";
         $scope.editing = false;
 		$scope.hiddenRow = -1;
+		$scope.addressToAdd = "";
+		$scope.price = "";
         $http({
             method: 'GET',
             url: '/house'
@@ -83,6 +85,7 @@ myApp.controller('AppCtrl', ['$scope','$http', function($scope, $http) {
         console.log(newHouse);
         $http.post('/house', newHouse).then(function(response) {
             console.log(response);
+			$scope.message = getZillowAddress(newHouse.address + " has been added successfully.");
             refresh();
         });
     };
@@ -145,6 +148,7 @@ myApp.controller('AppCtrl', ['$scope','$http', function($scope, $http) {
         bathrooms: "",
         bedrooms: "",
         price: 0,
+		payment: 0,
         rentBuy: ""
 	};
 	
@@ -856,6 +860,13 @@ myApp.controller('AppCtrl', ['$scope','$http', function($scope, $http) {
 							houseToAdd.squareFeet = response.data.response.results.result[0].finishedSqFt[0];
 							houseToAdd.link = response.data.response.results.result[0].links[0].homedetails[0];
 							houseToAdd.taxAssessment = response.data.response.results.result[0].taxAssessment[0];
+							if ($scope.rentBuy == "rent") {
+								houseToAdd.payment = parseInt($scope.price.replace(/[^\d.-]/g, ''));
+								houseToAdd.rentBuy = "rent";
+							} else {
+								houseToAdd.price = parseInt($scope.price.replace(/[^\d.-]/g, ''));
+								houseToAdd.rentBuy = "buy";
+							}
 							resolve(houseToAdd);
 						}, function (error) {
 							console.log(error);
