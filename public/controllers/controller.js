@@ -845,12 +845,23 @@ myApp.controller('AppCtrl', ['$scope','$http', function($scope, $http) {
 					houseToAdd.newYork = getNewYorkTime(myStation, timeToTrain);
 					console.log(houseToAdd);
 					return new Promise(function (resolve, reject) {
-						var parameters = {
+						var zillowParameters = {
 							address: getZillowAddress(address),
 							citystatezip: getZillowZip(address)
 						};
 						//console.log(
-						$http.get('/zhouse/', parameters).then(function(response) {
+						$http.post('/zhouse', zillowParameters).then(function(response) {
+							console.log(response);
+							houseToAdd.bedBath = response.data.response.results.result[0].bedrooms[0] + " / " + response.data.response.results.result[0].bathrooms[0];
+							houseToAdd.squareFeet = response.data.response.results.result[0].finishedSqFt[0];
+							houseToAdd.link = response.data.response.results.result[0].links[0].homedetails[0];
+							houseToAdd.taxAssessment = response.data.response.results.result[0].taxAssessment[0];
+							resolve(houseToAdd);
+						}, function (error) {
+							console.log(error);
+							reject(error);
+						});
+						/*$http.get('/zhouse/', parameters).then(function(response) {
 							console.log("RESPONSE from zhouse in controller: ");
 							console.log(response);
 							//$scope.houseToEdit = response.data;
@@ -862,7 +873,7 @@ myApp.controller('AppCtrl', ['$scope','$http', function($scope, $http) {
 						}, function (error) {
 							console.log(error);
 							reject(error);
-						});	
+						});    */	
 					});
 					//Put shit needed for Zillow call into req object (houseToAdd)
 				}).then(function(result) {
