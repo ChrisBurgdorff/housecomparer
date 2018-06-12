@@ -85,7 +85,7 @@ myApp.controller('AppCtrl', ['$scope','$http', function($scope, $http) {
         console.log(newHouse);
         $http.post('/house', newHouse).then(function(response) {
             console.log(response);
-			$scope.message = getZillowAddress(newHouse.address + " has been added successfully.");
+			$scope.message = getZillowAddress(newHouse.address) + " has been added successfully.";
             refresh();
         });
     };
