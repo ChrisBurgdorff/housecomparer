@@ -101,6 +101,14 @@ app.put('/settings/:id', function (req, res) {
   );
 });
 
+app.post('/zhouse', function (req, res) {
+  console.log(req.body);
+  zillow.get('GetDeepSearchResults', req.body)
+  .then(function(results) {
+	res.json(results);
+  })
+});
+
 app.get('/zhouse', function (req, res) {    
     var parameters = {
         address: '1204 Ocean Ave',
