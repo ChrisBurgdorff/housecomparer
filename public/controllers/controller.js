@@ -856,10 +856,18 @@ myApp.controller('AppCtrl', ['$scope','$http', function($scope, $http) {
 						//console.log(
 						$http.post('/zhouse', zillowParameters).then(function(response) {
 							console.log(response);
-							houseToAdd.bedBath = response.data.response.results.result[0].bedrooms[0] + " / " + response.data.response.results.result[0].bathrooms[0];
-							houseToAdd.squareFeet = response.data.response.results.result[0].finishedSqFt[0];
-							houseToAdd.link = response.data.response.results.result[0].links[0].homedetails[0];
-							houseToAdd.taxAssessment = response.data.response.results.result[0].taxAssessment[0];
+							if ( response.data.response.results.result[0].bedrooms[0] && response.data.response.results.result[0].bathrooms[0]) {
+								houseToAdd.bedBath = response.data.response.results.result[0].bedrooms[0] + " / " + response.data.response.results.result[0].bathrooms[0];
+							}
+							if ( response.data.response.results.result[0].finishedSqFt[0] ) {
+								houseToAdd.squareFeet = response.data.response.results.result[0].finishedSqFt[0];
+							}
+							if ( response.data.response.results.result[0].links[0].homedetails[0]) {
+								houseToAdd.link = response.data.response.results.result[0].links[0].homedetails[0];
+							}
+							if ( response.data.response.results.result[0].taxAssessment[0] ) {
+								houseToAdd.taxAssessment = response.data.response.results.result[0].taxAssessment[0];
+							}
 							if ($scope.rentBuy == "rent") {
 								houseToAdd.payment = parseInt($scope.price.replace(/[^\d.-]/g, ''));
 								houseToAdd.rentBuy = "rent";
