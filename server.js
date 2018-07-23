@@ -4,7 +4,7 @@ var app = express();
 var bodyParser = require('body-parser');
 //var houseController = require('./server/controllers/house-controller.js');
 var MongoClient = require('mongodb').MongoClient;
-var MongoUrl = "mongodb://wesborland1234:vcr357@ds135750.mlab.com:35750/housecomparerdb";
+var MongoUrl = "mongodb://newuser:fakepassword1@ds135750.mlab.com:35750/housecomparerdb";
 var mongodb = require('mongodb');
 
 var Zillow = require('node-zillow'); 
